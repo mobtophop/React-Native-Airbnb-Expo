@@ -5,7 +5,7 @@ const Page = () => {
   return (
     <View>
         <Text>
-            Page
+            Trips
         </Text>
     </View>
   );
