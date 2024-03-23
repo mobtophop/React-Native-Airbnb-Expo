@@ -1,14 +1,20 @@
+import { View } from 'react-native';
 import React from 'react';
-import {View, Text} from 'react-native';
+import { Stack } from 'expo-router';
+import ExploreHeader from '@/components/ExploreHeader';
+import Listings from "@/components/Listings";
 
 const Page = () => {
-  return (
-    <View>
-        <Text>
-            Page
-        </Text>
-    </View>
-  );
+    return (
+        <View style={{ flex: 1, marginTop: 80 }}>
+            <Stack.Screen
+                options={{
+                    header: () => <ExploreHeader />,
+                }}
+            />
+            <Listings />
+        </View>
+    );
 };
 
 export default Page;
