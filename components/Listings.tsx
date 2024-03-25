@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 
-const Listings = () => {
+interface Props {
+    listings: any[];
+    category: string;
+}
+const Listings = ({listings, category}: Props) => {
+    useEffect(() => {
+        console.log('listing length,', listings.length )
+    }, [category]);
     return (
         <View>
             <Text>
