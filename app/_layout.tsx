@@ -6,6 +6,8 @@ import {TouchableOpacity} from "react-native";
 import {ClerkProvider, useAuth} from '@clerk/clerk-expo';
 import {Ionicons} from "@expo/vector-icons";
 import * as SecureStore from 'expo-secure-store';
+import Colors from "@/constants/Colors";
+import ModalHeaderText from "@/components/ModalHeaderText";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -97,15 +99,28 @@ function RootLayoutNav() {
           )
         }}/>
         <Stack.Screen name="listing/[id]" options={{ headerTitle: '', headerTransparent: true }} />
-        <Stack.Screen name="(modals)/booking" options={{
-          presentation: 'transparentModal',
-          animation: 'fade',
-          headerLeft: () => (
-              <TouchableOpacity onPress={() => router.back()}>
-                <Ionicons name="close-outline" size={28} />
-              </TouchableOpacity>
-          )
-        }} />
+          <Stack.Screen
+              name="(modals)/booking"
+              options={{
+                  presentation: 'transparentModal',
+                  animation: 'fade',
+                  headerTransparent: true,
+                  headerTitle: (props) => <ModalHeaderText />,
+                  headerLeft: () => (
+                      <TouchableOpacity
+                          onPress={() => router.back()}
+                          style={{
+                              backgroundColor: '#fff',
+                              borderColor: Colors.grey,
+                              borderRadius: 20,
+                              borderWidth: 1,
+                              padding: 4,
+                          }}>
+                          <Ionicons name="close-outline" size={22} />
+                      </TouchableOpacity>
+                  ),
+              }}
+          />
       </Stack>
     );
 }
