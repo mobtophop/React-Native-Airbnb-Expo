@@ -61,19 +61,19 @@ const ExploreHeader = ({ onCategoryChanged }: Props) => {
             <View style={styles.container}>
                 <View style={styles.actionRow}>
                     <Link href={'/(modals)/booking'} asChild>
-                        <TouchableOpacity>
-                            <View style={styles.searchBtn}>
+                        <View style={styles.searchBtn}>
+                            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
                                 <Ionicons name="search" size={24} />
-                                <View>
+                                <View style={{gap: 2}}>
                                     <Text style={{ fontFamily: 'mon-sb' }}>Where to?</Text>
-                                    <Text style={{ color: Colors.grey, fontFamily: 'mon' }}>Anywhere · Any week</Text>
+                                    <Text style={{ color: Colors.grey, fontFamily: 'mon', fontSize: 12 }}>Anywhere · Any week · Add guests</Text>
                                 </View>
-                            </View>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.filterBtn}>
+                                <Ionicons name="options-outline" size={24} />
+                            </TouchableOpacity>
+                        </View>
                     </Link>
-                    <TouchableOpacity style={styles.filterBtn}>
-                        <Ionicons name="options-outline" size={24} />
-                    </TouchableOpacity>
                 </View>
 
                 <ScrollView
@@ -131,10 +131,10 @@ const styles = StyleSheet.create({
     searchBtn: {
         backgroundColor: '#fff',
         flexDirection: 'row',
-        gap: 10,
         padding: 14,
+        justifyContent: 'space-between',
         alignItems: 'center',
-        width: 280,
+        width: '100%',
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#c2c2c2',
         borderRadius: 30,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         },
     },
     filterBtn: {
-        padding: 10,
+        padding: 6,
         borderWidth: 1,
         borderColor: '#A2A0A2',
         borderRadius: 24,
