@@ -28,6 +28,7 @@ const Layout = () => {
         }}/>
         <Tabs.Screen name='inbox' options={{
             tabBarLabel: 'Inbox',
+            headerShown: false,
             tabBarIcon: ({color, size}) => <MaterialCommunityIcons name='message-outline' color={color} size={size} />
         }}/>
         <Tabs.Screen name='profile' options={{

@@ -60,8 +60,8 @@ const ExploreHeader = ({ onCategoryChanged }: Props) => {
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <View style={styles.container}>
                 <View style={styles.actionRow}>
-                    <Link href={'/(modals)/booking'} asChild>
-                        <View style={styles.searchBtn}>
+                    <View style={styles.searchBtn}>
+                        <Link href={'/(modals)/booking'} asChild>
                             <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
                                 <Ionicons name="search" size={24} />
                                 <View style={{gap: 2}}>
@@ -69,11 +69,11 @@ const ExploreHeader = ({ onCategoryChanged }: Props) => {
                                     <Text style={{ color: Colors.grey, fontFamily: 'mon', fontSize: 12 }}>Anywhere · Any week · Add guests</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.filterBtn}>
-                                <Ionicons name="options-outline" size={24} />
-                            </TouchableOpacity>
-                        </View>
-                    </Link>
+                        </Link>
+                        <TouchableOpacity style={styles.filterBtn}>
+                            <Ionicons name="options-outline" size={24} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
                 <ScrollView
