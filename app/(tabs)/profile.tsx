@@ -126,7 +126,8 @@ const Page = () => {
                             </View>
                             <Image style={styles.image} source={require('@/assets/images/building.png')} />
                         </View>
-                        <View style={{ justifyContent: 'space-between',flexDirection: 'row', marginTop: 30}}>
+                        <View style={{ justifyContent: 'space-between',flexDirection: 'row', marginTop: 50,borderBottomWidth: StyleSheet.hairlineWidth,
+                            borderBottomColor: Colors.grey,paddingBottom: 30}}>
                             <View style={{flexDirection: 'row', alignItems: 'center'}}>
                                 <Ionicons name='settings-outline' size={22} color={Colors.dark} />
                                 <Text style={{paddingLeft: 14, color: Colors.dark}}>Settings</Text>
@@ -192,7 +193,7 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     container: {
-        marginTop: 20,
+        marginTop: 30,
         padding: 24,
         flexDirection: 'row',
         alignItems: 'center',
