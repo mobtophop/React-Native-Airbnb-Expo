@@ -13,7 +13,7 @@ const Layout = () => {
             },
         }}
     >
-        <Tabs.Screen name='explore' options={{
+        <Tabs.Screen name='index' options={{
             tabBarLabel: 'Explore',
             tabBarIcon: ({color, size}) => <Ionicons name='search' color={color} size={size} />
         }}/>

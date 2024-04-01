@@ -30,7 +30,6 @@ const Page = () => {
         }[strategy];
 
         try {
-            console.log('here')
             const { createdSessionId, setActive } = await selectedAuth();
 
             console.log('createdSessionId',createdSessionId);
