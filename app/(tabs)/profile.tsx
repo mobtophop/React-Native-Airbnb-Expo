@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, Image} from 'react-native';
 import {useAuth, useUser} from "@clerk/clerk-expo";
 import {Link} from "expo-router";
-import {Ionicons} from "@expo/vector-icons";
+import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {defaultStyles} from "@/constants/Styles";
 import Colors from "@/constants/Colors";
 import * as ImagePicker from 'expo-image-picker';
@@ -56,11 +56,11 @@ const Page = () => {
 
     return (
         <SafeAreaView style={defaultStyles.container}>
-            <View>
+            <View style={{paddingHorizontal: 24}}>
                 <View style={styles.headerContainer}>
                     <Text style={styles.headerText}>Profile</Text>
-                    <Ionicons name='notifications-outline' size={26} />
                 </View>
+                <Text style={{color: Colors.grey, marginBottom: 40}}>Log in to start planning your next trip.</Text>
 
                 {user && (
                     <View style={styles.card}>
@@ -105,9 +105,43 @@ const Page = () => {
 
                 {isSignedIn && <Button title="Log Out" onPress={() => signOut()} color={Colors.dark} />}
                 {!isSignedIn && (
-                    <Link href={'/(modals)/login'} asChild>
-                        <Button title="Log In" color={Colors.dark} />
-                    </Link>
+                    <>
+                        <Link href={'/(modals)/login'} asChild >
+                            <TouchableOpacity style={defaultStyles.btn}>
+                                <Text style={defaultStyles.btnText}>Log in</Text>
+                            </TouchableOpacity>
+                        </Link>
+
+                        <View style={{flexDirection: 'row', alignItems: 'center',marginTop: 20}}>
+                            <Text style={{paddingRight: 5}}>Don't have an account?</Text>
+                            <Link href={'/(modals)/login'} asChild>
+                                <Text style={{textDecorationLine: 'underline'}}>Sign up</Text>
+                            </Link>
+                        </View>
+
+                        <View style={styles.container}>
+                            <View style={{}}>
+                                <Text style={{fontFamily: 'mon-sb', paddingBottom: 10, fontSize: 16}}>Airbnb your place</Text>
+                                <Text style={{color: Colors.grey, fontSize: 14}}>It is simple to get set up{'\n'}and start earning.</Text>
+                            </View>
+                            <Image style={styles.image} source={require('@/assets/images/building.png')} />
+                        </View>
+                        <View style={{ justifyContent: 'space-between',flexDirection: 'row', marginTop: 30}}>
+                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                <Ionicons name='settings-outline' size={22} color={Colors.dark} />
+                                <Text style={{paddingLeft: 14, color: Colors.dark}}>Settings</Text>
+                            </View>
+                            <MaterialIcons name={'keyboard-arrow-right'} size={24} />
+                        </View>
+
+                        <View style={{ justifyContent: 'space-between',flexDirection: 'row', marginTop: 30}}>
+                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                <Ionicons name='help-circle-outline' size={24} color={Colors.dark} />
+                                <Text style={{paddingLeft: 12, color: Colors.dark}}>Get help</Text>
+                            </View>
+                            <MaterialIcons name={'keyboard-arrow-right'} size={24} />
+                        </View>
+                    </>
                 )}
             </View>
         </SafeAreaView>
@@ -119,7 +153,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 24,
+        paddingTop: 24,
+        paddingBottom: 10,
     },
     headerText: {
         fontFamily: 'mon-b',
@@ -156,6 +191,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         gap: 8,
     },
+    container: {
+        marginTop: 20,
+        padding: 24,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: '#fff',
+        height: 130,
+        elevation: 2,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        borderRadius: 10,
+        borderWidth: 0.5,
+        borderColor: '#e5e5e5',
+        shadowOffset: {
+            width: 1,
+            height: 10,
+        },
+    },
+    image: {
+        resizeMode: 'contain',
+        width: 80,
+        height: 80
+    }
 })
 
 export default Page;
